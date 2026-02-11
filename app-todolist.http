@@ -1,0 +1,52 @@
+## Global Variable
+@BaseUrl = http://127.0.0.1:8080
+
+## ===========================================
+## TODOS
+## ===========================================
+
+### Get All Todos
+# @name GetAllTodos
+GET {{BaseUrl}}/todos
+Accept: application/json
+
+
+### Create Todo
+# @name PostTodo
+POST {{BaseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "Latihan Ktor",
+  "description": "Belajar Ktor dengan benar",
+  "isDone": false
+}
+
+> {%
+    const json = response.body;
+    client.global.set("todoId", json.data.todoId);
+%}
+
+
+### Get Todo By Id
+# @name GetTodoById
+GET {{BaseUrl}}/todos/{{todoId}}
+Accept: application/json
+
+
+### Update Todo
+# @name PutTodo
+PUT {{BaseUrl}}/todos/{{todoId}}
+Content-Type: application/json
+
+{
+  "title": "Latihan Ktor Update",
+  "description": "Belajar Ktor lebih dalam",
+  "isDone": true
+}
+
+
+### Delete Todo
+# @name DeleteTodo
+DELETE {{BaseUrl}}/todos/{{todoId}}
+Accept: application/json
