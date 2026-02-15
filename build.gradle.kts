@@ -12,7 +12,7 @@ group = "org.delcom"
 version = "0.0.1"
 
 application {
-    mainClass.set("org.delcom.ApplicationKt")
+    mainClass = "org.delcom.ApplicationKt"
 }
 
 kotlin {
